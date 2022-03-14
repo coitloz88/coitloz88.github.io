@@ -1,15 +1,12 @@
 ---
-title: First Post!
-author: 
-  name: coitloz88
-  link: https://github.com/coitloz88
+title: First post!
 date: 2022-03-12 04:21:00 +0900
 categories: [Blogging, Tutorial]
-tags: [etc]
+tags: [etc]     # TAG names should always be lowercase
 ---
 
-##첫 포스팅
+##It's my first posting)
 
-<br>
-
-드디어 블로그 구동에 성공해서 첫 포스팅을 올려본다.
+Finally, I succeeded in producing a blog and am uploading the first article.
+I'm very happy :)
+I will write down various articles in the future.
