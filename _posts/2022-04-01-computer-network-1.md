@@ -45,7 +45,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 
 
 ## 허브 (Hub)  
-![Hub](/assets/img/posts-images/network/network01-2.png)  
+![Hub](/assets/img/posts-images/network/network01-2.png){: width="70%"}{: .center}
   
 * 여러 대(세 대 이상)의 컴퓨터를 손쉽게 연결하는 장치
 * 여러 개의 입력, 출력 포트가 있는 특수한 형태의 네트워크 장치. 한 포트에서 수신된 신호는 허브의 다른 모든 포트로 즉시 재전송되며, 모든 입력과 출력은 서로 연결되어 있어 여러 개의 노드가 똑같은 중계기를 공유할 수 있도록 해줌.
@@ -62,7 +62,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 
 
 ## 스위치 (Swtich)
-![Switch](/assets/img/posts-images/network/network01-3.png)
+![Switch](/assets/img/posts-images/network/network01-3.png){: width="70%"}{: .center}
   
 * 컴퓨터에 할당되는 대역폭을 극대화시켜주는 장치
 * 근거리 통신망이 제공하는 대역폭을 모두 컴퓨터로 전송
@@ -84,7 +84,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 * 네트워크에서 신호를 수신하여 증폭한 뒤, 다음 구간으로 재전송함
 
 ## 라우터 (Router)
-<img src="/assets/img/posts-images/network/network01-4.png" alt="Router"/>
+<center><img src="/assets/img/posts-images/network/network01-4.png" alt="Router"/></center>
   
 * 서로 다른 네트워크 간에 통신하는 데 사용되는 장치
 * 서로 구조가 다른 망을 연결할 수 있어 LAN, MAN, WAN을 연결하는 데 사용됨
