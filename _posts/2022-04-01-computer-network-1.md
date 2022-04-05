@@ -62,7 +62,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 
 
 ## 스위치 (Swtich)
-![Switch](../assets/img/posts-images/network/network01-3.png)
+![Switch](/assets/img/posts-images/network/network01-3.png)
   
 * 컴퓨터에 할당되는 대역폭을 극대화시켜주는 장치
 * 근거리 통신망이 제공하는 대역폭을 모두 컴퓨터로 전송
