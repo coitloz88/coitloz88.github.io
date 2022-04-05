@@ -84,7 +84,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 * 네트워크에서 신호를 수신하여 증폭한 뒤, 다음 구간으로 재전송함
 
 ## 라우터 (Router)
-![Router](../assets/img/posts-images/network/network01-4.png)
+<img src="/assets/img/posts-images/network/network01-4.png" alt="Router"/>
   
 * 서로 다른 네트워크 간에 통신하는 데 사용되는 장치
 * 서로 구조가 다른 망을 연결할 수 있어 LAN, MAN, WAN을 연결하는 데 사용됨
