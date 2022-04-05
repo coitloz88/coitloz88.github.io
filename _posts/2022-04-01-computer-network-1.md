@@ -63,7 +63,6 @@ tags: [computer, network]     # TAG names should always be lowercase
 
 ## 스위치 (Swtich)
 ![Switch](/assets/img/posts-images/network/network01-3.png){: width="70%"}{: .center}
-  
 * 컴퓨터에 할당되는 대역폭을 극대화시켜주는 장치
 * 근거리 통신망이 제공하는 대역폭을 모두 컴퓨터로 전송
 * 수신하는 데이터의 의도한 대상을 식별할 수 있으므로, 데이터를 수신하기로 되어 있는 컴퓨터에만 해당 데이터를 보냄. 동시 송수신도 가능하므로 허브보다 빠른 속도로 데이터를 보낼 수도 있음.
@@ -84,7 +83,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 * 네트워크에서 신호를 수신하여 증폭한 뒤, 다음 구간으로 재전송함
 
 ## 라우터 (Router)
-<center><img src="/assets/img/posts-images/network/network01-4.png" alt="Router"/></center>
+<center><img src="/assets/img/posts-images/network/network01-4.png" width="70%" alt="Router"/></center>
   
 * 서로 다른 네트워크 간에 통신하는 데 사용되는 장치
 * 서로 구조가 다른 망을 연결할 수 있어 LAN, MAN, WAN을 연결하는 데 사용됨
