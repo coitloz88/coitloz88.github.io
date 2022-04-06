@@ -35,7 +35,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 ---  
 # 02. 네트워크 접속 장치
 네트워크 접속 장치는 통신망 구성에서 가장 기본이 되는 하드웨어다. 물리적으로 떨어져 있는 다양한 형태의 근거리 통신망을 연결하여 좀 더 복잡하고 큰 광역 통신망을 형성하기 위해서는 다양한 저복 장치가 필요하다.  
-컴퓨터 네트워크 장치는 Network Interface Card를 이용해서 네트워크에 연결할 수 있다. 또한, 허브, 중계기, 스위치, 게이트웨이, 라우터 등을 이용하여 Networking 문제를 해결한다.  
+컴퓨터 네트워크 장치는 Network Interface Card를 이용해서 네트워크에 연결할 수 있다. 또한, 허브, 중계기, 스위치, 게이트웨이, 라우터 등을 이용하여 Networking 문제를 해결한다. [(용어 정리 참고)](https://velog.io/@ckstn0777/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%ED%97%88%EB%B8%8C-%EC%8A%A4%EC%9C%84%EC%B9%98-%EB%9D%BC%EC%9A%B0%ED%84%B0-%EA%B3%B5%EC%9C%A0%EA%B8%B0)
 
 
 ## LAN 카드 (NIC, Network Interface Card)
