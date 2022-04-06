@@ -83,7 +83,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 * 네트워크에서 신호를 수신하여 증폭한 뒤, 다음 구간으로 재전송함
 
 ## 라우터 (Router)
-<center><img src="/assets/img/posts-images/network/network01-4.png" width="70%" alt="Router"/></center>
+<center><img src="/assets/img/posts-images/network/network01-4.png" width="50%" alt="Router"/></center>
   
 * 서로 다른 네트워크 간에 통신하는 데 사용되는 장치
 * 서로 구조가 다른 망을 연결할 수 있어 LAN, MAN, WAN을 연결하는 데 사용됨
@@ -102,4 +102,7 @@ tags: [computer, network]     # TAG names should always be lowercase
 ## 성형 (Star)
 가장 일반적인 네트워크 구성 형태로, 허브가 네트워크 중앙에 위치하여 다른 모든 노드를 연결한다.  
 중앙의 허브가 회선 교환 방식을 사용하여 통신하려는 노드 두 개에 전용 회선을 만들어 주며, 일대일로 구성되는 점대점의 확장 형태이다.  
-![Star Network](https://cdn.pixabay.com/photo/2021/03/30/11/25/star-network-6136748_1280.png){: width="70%"}{: .center}
+![Star Network](https://cdn.pixabay.com/photo/2021/03/30/11/25/star-network-6136748_1280.png){: width="60%"}{: .center}
+위 그림처럼, 성형 접속의 형태는 메인 프레임[^1]이 중앙에 위치하고, 여기에 터미널을 연결한 메인 프레임 시스템의 모습을 보여준다. 각 장치는 직접적으로 통신할 수 없으며 중앙에 있는 제어 장치인 허브가 교환 역할을 한다.
+
+[^1] 빠른 속도로 작동하며, 많은 입출력 장치를 신속하게 제어하여 여러 사용자가 함께 이용할 수 있는 컴퓨터 시스템
