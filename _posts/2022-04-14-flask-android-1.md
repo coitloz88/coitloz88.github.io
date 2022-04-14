@@ -1,11 +1,14 @@
 ---
-title: Android Emulator로 Flask 로컬 서버 접속하기
+title: Android에서 Flask 서버 접속하기 1 - Emulator
 date: 2022-04-14 14:30:00 +0900
 categories: [Computer, Android]
 tags: [computer, android, flask, volley]     # TAG names should always be lowercase
 ---
 
-Flask에서 랜덤한 숫자를 발생시키고 해당 숫자를 안드로이드에서 받아오는 예제를 진행해보았다.  
+Flask 로컬 서버에서 랜덤한 숫자를 발생시키고 해당 숫자를 안드로이드 에뮬레이터에서 받아오는 예제를 진행해보았다.  
+
+최종 목표는 퍼블릭 서버에서, 실제 디바이스에 설치된 앱이 값을 받아오는 것.  
+
 참고한 코드는 [여기](https://infos.tistory.com/4004).  
 
 Android에서 volley.Response.Listener를 사용하여 응답이 왔을 때 이를 받아 처리를 등록했다.  
@@ -106,7 +109,7 @@ if __name__ == '__main__':
 ### (1-2) dependency 추가
 나는 자동으로 됐는데 혹시나 추가가 잘 되었는지 확인해보자.  
 **build.grandle(:app)** 파일의 `dependencies` 부분에 아래의 내용이 잘 추가되었는지 확인해본다.
-```xml
+```
 implementation 'com.android.volley:volley:1.2.1'
 ```
 
