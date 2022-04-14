@@ -101,7 +101,7 @@ if __name__ == '__main__':
 ```  
 이제 <application> 위에 `<uses-permission android:name="android.permission.INTERNET"/>`을 작성해주자.
 
-![AndroidManifest.xml 설정](/assets/img/posts-images/flask-android/capture-2022-04-14-134539.png){: width="75%"}{: .center}
+![AndroidManifest.xml 설정](/assets/img/posts-images/flask-android/capture-2022-04-14-134539.png){: width="70%"}{: .center}
 
 ### (1-2) dependency 추가
 나는 자동으로 됐는데 혹시나 추가가 잘 되었는지 확인해보자.  
@@ -139,7 +139,7 @@ NetworkDispatcher.processRequest: Unhandled exception java.lang.RuntimeException
 각 인스턴스의 가상 라우터는 10.0.2/24 네트워크 주소 공간을 관리한다. 라우터가 관리하는 주소는 모두 10.0.2.*xx* 형식이다.
 
 | 네트워크 주소 | 설명 |
-|:----------|----------:|
+|:----------|:----------:|
 | 10.0.2.1 | 라우터/게이트웨이 주소 |
 | 10.0.2.2 | 호스트 루프백 인터페이스의 특수 별칭(개발 머신의 127.0.0.1) |
 | 10.0.2.3 | 첫 번째 DNS 서버 |
@@ -156,7 +156,7 @@ code 400, message Bad request version
 ```  
 
 Jupyter Notebook에서는 다음과 같은 에러를 출력했다.  
-![Bad request 400](/assets/img/posts-images/flask-android/capture-2022-04-14-143112.png){: width="80%"}{: .center}
+![Bad request 400](/assets/img/posts-images/flask-android/capture-2022-04-14-143112.png){: .center}
 
 에뮬레이터 크롬에서 `https://10.0.2.2:5000`를 접속했을 때는 이제 잘 출력돼서 뭐가 문제인건지 또 골치아팠는데 간단하게 해결됐다.  
 위의 오류는 `URL`을 `https://10.0.2.2:5000`에서 `http://10.0.2.2:5000`로 변경해주었더니 해결되었다.  
@@ -225,12 +225,12 @@ json 형식으로 파싱하는 예제는 곧 다시 업로드하려고 한다.
 * 앱을 새로고침해서 Random Number를 출력하기
     - 현재는 종료 후 재접속 시 Random Number가 출력됨
 * json 형태를 파싱해서 Number만 받아오기
-* [AWS](https://aws.amazon.com/ko/free/?trk=fa2d6ba3-df80-4d24-a453-bf30ad163af9&sc_channel=ps&sc_campaign=acquisition&sc_medium=ACQ-P|PS-GO|Brand|Desktop|SU|Core-Main|Core|KR|KR|Text&ef_id=CjwKCAjw6dmSBhBkEiwA_W-EoMtZg-hE2dII7hztYersMhIiddHRGUIB7PdL68-hNVEpuNysJcTvLxoCBwwQAvD_BwE:G:s&s_kwcid=AL!4422!3!563761819834!e!!g!!aws&ef_id=CjwKCAjw6dmSBhBkEiwA_W-EoMtZg-hE2dII7hztYersMhIiddHRGUIB7PdL68-hNVEpuNysJcTvLxoCBwwQAvD_BwE:G:s&s_kwcid=AL!4422!3!563761819834!e!!g!!aws&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all) 알아보기
+* [AWS](https://aws.amazon.com/ko/free/) 알아보기
     - Github 학생 인증 시 AWS 이용이 무료라는 소리를 어디서 들은 것 같아서 같이 알아보기
 
 
 # References
-<https://developer.android.com/training/volley?hl=ko>
-<https://developer.android.com/studio/run/emulator-networking.html>
-<https://infos.tistory.com/4004>
-<https://stackoverflow.com/questions/49389535/problems-with-flask-and-bad-request>
+* <https://developer.android.com/training/volley?hl=ko>
+* <https://developer.android.com/studio/run/emulator-networking.html>
+* <https://infos.tistory.com/4004>
+* <https://stackoverflow.com/questions/49389535/problems-with-flask-and-bad-request>
