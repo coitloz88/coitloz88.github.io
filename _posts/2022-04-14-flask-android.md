@@ -1,8 +1,8 @@
 ---
 title: Android Emulator로 Flask 로컬 서버 접속하기
 date: 2022-04-14 14:30:00 +0900
-categories: [Computer, etc]
-tags: [android, flask]     # TAG names should always be lowercase
+categories: [Computer, Android]
+tags: [computer, android, flask, volley]     # TAG names should always be lowercase
 ---
 
 Flask에서 랜덤한 숫자를 발생시키고 해당 숫자를 안드로이드에서 받아오는 예제를 진행해보았다.  
