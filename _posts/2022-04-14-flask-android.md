@@ -19,7 +19,7 @@ Volley는 Android 앱의 네트워킹을 더 쉽고 빠르게 하는 HTTP 라이
 `Volley.newRequestQueue` 메서드를 사용하여 `RequestQueue`를 편리하게 설정하고 요청을 전송하는 방법에 관해 코드 레벨로 간단하게 알아보자.
 
 ### (1) 인터넷 권한 추가
-앱이 네트워크에 연결하기 위해 `AndroidManifest.xml`에 `android.permission.INTERNET` 권한을 추가해야 한다.
+앱이 네트워크에 연결하기 위해 `AndroidManifest.xml`에 `android.permission.INTERNET` 권한을 추가해야 한다.  
 
 ### (2) newRequestQueue 사용
 ```java
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
 ## Android(Android studio, java) 어플리케이션 part
 
-### (1) 권한 설정
+### (1-1) 권한 설정
 `AndroidManifest.xml` 파일을 열어보자.  
 그러면 보통 다음과 같이 적혀있다.
 
@@ -94,6 +94,13 @@ if __name__ == '__main__':
 이제 <application> 위에 `<uses-permission android:name="android.permission.INTERNET"/>`을 작성해주자.
 
 ![AndroidManifest.xml 설정](/assets/img/posts-images/flask-android/capture-2022-04-14-134539.png){: width="75%"}{: .center}
+
+### (1-2) dependency 추가
+나는 자동으로 됐는데 혹시나 추가가 잘 되었는지 확인해보자.  
+**build.grandle(:app)** 파일의 `dependencies` 부분에 아래의 내용이 잘 추가되었는지 확인해본다.
+```xml
+implementation 'com.android.volley:volley:1.2.1'
+```
 
 ### (2) activity_main.xml에서, flask 서버로부터 내용을 받아와 해당 내용을 보여줄 textview를 하나 만들어 원하는 대로 이름을 설정한다. 나의 경우는 `tv_test_message`로 설정했다.
 
