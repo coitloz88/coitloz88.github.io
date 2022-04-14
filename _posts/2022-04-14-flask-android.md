@@ -10,6 +10,8 @@ Flask에서 랜덤한 숫자를 발생시키고 해당 숫자를 안드로이드
 
 Android에서 volley.Response.Listener를 사용하여 응답이 왔을 때 이를 받아 처리를 등록했다.  
 
+---
+
 # [Volley](https://developer.android.com/training/volley?hl=ko)란?
 Volley는 Android 앱의 네트워킹을 더 쉽고 빠르게 하는 HTTP 라이브러리이다.  
 아직 나는 네트워크나 각종 웹 프레임워크에 관한 지식이 부족한 편인데, 공식 문서 및 각종 구글링을 통해 알게 된 내용을 정리해놓으려고 한다.
@@ -49,11 +51,15 @@ Volley는 Android 앱의 네트워킹을 더 쉽고 빠르게 하는 HTTP 라이
     queue.add(stringRequest);
 ```
 
+---
+
 # 실제 구현
 코드는 [이 쪽](https://github.com/coitloz88/Flask-Android-link/tree/main/AndroidApp).  
 다만 나는 [여기](https://infos.tistory.com/4004)의 코드를 참고하여 작성했기 때문에, RequestQueue는 이용하지 않았다.  
 
 Flask 서버에서 발생시킨 난수를 key-value 형태의 .json 파일 형식으로 웹에 띄우면, 그 값을 Android Emulator로 가져와 화면의 textview에서 보여준다.  
+
+---
 
 ## Flask(Jupyter notebook, python) 서버 part
 jupyter notebook에서 실행했다.
@@ -73,6 +79,8 @@ if __name__ == '__main__':
 ```
 
 서버를 구동하고 있는 상태에서 안드로이드 앱을 실행하자.
+
+---
 
 ## Android(Android studio, java) 어플리케이션 part
 
