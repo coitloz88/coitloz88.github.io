@@ -76,16 +76,16 @@ public void onResponse(String response) {
 ## SwipeRefreshLayout 사용하기[(참고)](https://stickode.tistory.com/20)
 
 ### build.grandle(:app)에 dependency 추가
-해당 파일의 `dependencies{ ... }` 부분에 다음 문구를 추가한 뒤 `Sync now`로 다운로드 받는다.
+해당 파일의 `dependencies{ ... }` 부분에 다음 문구를 추가한 뒤 `Sync now`{: .filepath }로 다운로드 받는다.
 ```
 implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 ```
 
 ### `Activity_main.xml` 수정하기
 우선 `activity_main.xml`을 수정해줘야한다.  
-Code를 직접 수정해준다. 본래 `<androidx.constraintlayout.widget ... >`으로 되어있을텐데, 이 부분을 포함하여 Textview의 설정도 ConstraintLayout에서 SwipeRefreshLayout으로 바뀌므로 일부 바꿔준다.  
+Code를 직접 수정해준다. 본래 `<androidx.constraintlayout.widget ... >`{: .filepath }으로 되어있을텐데, 이 부분을 포함하여 Textview의 설정도 ConstraintLayout에서 SwipeRefreshLayout으로 바뀌므로 일부 바꿔준다.  
 
-본래는 새로고침할 View 영역을 SwipeRefreshLayout으로 감싸줘야하는데, 내 경우는 textview 하나 있는 거 감싸주는 거라 통째로 고쳐주었다.
+본래는 새로고침할 View 영역을 SwipeRefreshLayout으로 감싸줘야 하는데, 내 경우는 textview 하나 있는 거 감싸주는 거라 통째로 고쳐주었다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -113,11 +113,12 @@ Code를 직접 수정해준다. 본래 `<androidx.constraintlayout.widget ... >`
 
 2. SwipeRefreshLayout을 객체로 생성
 
-3. `OnCreate( ... )` 메서드에서 SwipeRefreshLayout에 `setOnRefreshListener()` 메서드를 통해 리스너를 달아준다.  
+3. `onCreate( ... )` 메서드에서 SwipeRefreshLayout에 `setOnRefreshListener()` 메서드를 통해 리스너를 달아준다.  
 
 4. `onRefresh()` 메서드에서 새로고침 시 변경되는 사항을 작성한다. 해당 메서드에 작성한 내용은 사용자가 화면을 위에서 아래로 당기면 호출된다. 
 
-**주의 사항**: SwipeRefreshLayout을 사용해서 새로고침을 구현하는 경우, `setRefreshing()` 메서드로 화면을 update하고 새로고침이 끝났다면 반드시 `setRefreshing()` 메서드 인자에 **false**를 세팅해주어야 한다. (Boolean 값으로 상단 원형 ProgressBar의 Visibility를 설정함)
+> SwipeRefreshLayout을 사용해서 새로고침을 구현하는 경우, `setRefreshing()` 메서드로 화면을 update하고 새로고침이 끝났다면 반드시 `setRefreshing()` 메서드 인자에 `false`{: .filepath }를 세팅해주어야 한다. (Boolean 값으로 상단 원형 ProgressBar의 Visibility를 설정함)
+{: .prompt-tip }
 
 ```java
 package com.example.flaskservertest;
