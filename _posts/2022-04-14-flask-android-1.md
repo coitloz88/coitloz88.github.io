@@ -1,7 +1,7 @@
 ---
 title: Android에서 Flask 서버 접속하기 1 - Emulator
 date: 2022-04-14 14:30:00 +0900
-categories: [Android]
+categories: [Android, etc]
 tags: [computer, android, flask, volley]     # TAG names should always be lowercase
 ---
 
