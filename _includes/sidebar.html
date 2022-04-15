@@ -74,6 +74,8 @@
           javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
         {%- elsif entry.type == 'rss' -%}
           {{ "/feed.xml" | relative_url }}
+        {%- elsif entry.type == 'notion' -%}
+          https://{{ site.notion.username }}.notion.site
         {%- else -%}
           {{ entry.url }}
         {%- endif -%}
