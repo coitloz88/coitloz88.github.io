@@ -13,8 +13,8 @@ tags: [android, codelab]     # TAG names should always be lowercase
 
 ![Android Studio Layout Editor](https://developer.android.com/codelabs/android-training-layout-editor-part-a/img/76af3429c6df2e78.png?hl=ko)
 
-1. activity_main.xml{: .filepath }에서는 실제로 사용자에게 보이는 화면 구성을 확인할 수 있다.
-2. **Design** 탭을 사용하여 각종 Elements와 Layout을 조작할 수 있다. **Code** 탭에서느느 Layout의 XML 코드를 편집할 수 있다.
+1. `activity_main.xml`{: .filepath }에서는 실제로 사용자에게 보이는 화면 구성을 확인할 수 있다.
+2. **Design** 탭을 사용하여 각종 Elements와 Layout을 조작할 수 있다. **Code** 탭에서는 Layout의 XML 코드를 편집할 수 있다.
 
 ---
 

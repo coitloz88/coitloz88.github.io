@@ -12,8 +12,8 @@ Android에 관해서는 동아리에서 어느정도 공부했었지만, 체계�
 ---
 # Summary
 * 프로젝트에 새로운 Library를 추가하거나 Library 버전을 바꾸기 위해서는 `build.grandle (Module:app)` 파일을 수정한다.
-* 앱을 위한 모든 코드와 리소스는 app{: .filepath }과 res{: .filepath } 폴더에 위치한다. java{: .filepath } 폴더는 Java 소스 코드 형태의 Activities, Tests, 그리고 다른 Components들을 포함한다. res{: .filepath } 폴더는 Layouts, Strings, Images와 같은 리소스를 포함한다.
-* 안드로이드 앱에 Features, Components나 Permissions을 추가하기 위해서는 AndroidManifest.xml{: .filepath }을 수정해줘야 한다. 여러 Activities와 같은 앱을 위한 모든 Componenets는 이 XML 파일 안에서 선언되어 있어야 한다.
+* 앱을 위한 모든 코드와 리소스는 `app`{: .filepath }과 `res`{: .filepath } 폴더에 위치한다. `java`{: .filepath } 폴더는 Java 소스 코드 형태의 Activities, Tests, 그리고 다른 Components들을 포함한다. `res`{: .filepath } 폴더는 Layouts, Strings, Images와 같은 리소스를 포함한다.
+* 안드로이드 앱에 Features, Components나 Permissions을 추가하기 위해서는 `AndroidManifest.xml`{: .filepath }을 수정해줘야 한다. 여러 Activities와 같은 앱을 위한 모든 Componenets는 이 XML 파일 안에서 선언되어 있어야 한다.
 
 # [Log](https://developer.android.com/reference/android/util/Log.html?hl=ko)
 앱에 `Log` statement를 추가하여 **Logcat** 창에서 메시지를 표시할 수 있다. `Log` 메시지는 Values, Execution paths, Exceptions을 확인하기 위한 좋은 디버깅 도구이다.  
