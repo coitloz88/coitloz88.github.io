@@ -1,5 +1,5 @@
 ---
-title: [Android 기초] 1.2 대화형 UI
+title: Android 기초 1.2 대화형 UI
 date: 2022-04-15 15:00:00 +0900
 categories: [Android, Fundamentals]
 tags: [android, codelab]     # TAG names should always be lowercase

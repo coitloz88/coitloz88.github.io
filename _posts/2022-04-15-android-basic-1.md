@@ -1,5 +1,5 @@
 ---
-title: [Android 기초] 1.1 시작하기
+title: Android 기초 1.1 시작하기
 date: 2022-04-15 14:35:00 +0900
 categories: [Android, Fundamentals]
 tags: [android, codelab]     # TAG names should always be lowercase
