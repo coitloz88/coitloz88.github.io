@@ -21,12 +21,12 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Amo's devlog                    # the main title
+title: Devlog                    # the main title
 
-tagline: CS & Dev Study Blog   # it will display as the sub-title
+tagline: CS Study Blog   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  CS, 개발과 관련된 여러가지를 공부합니다. :)
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://coitloz88.github.io'
