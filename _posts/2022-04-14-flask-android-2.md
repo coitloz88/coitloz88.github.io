@@ -1,7 +1,7 @@
 ---
 title: Android에서 Flask 서버 접속하기 2 - SwipeRefreshLayout 사용
 date: 2022-04-14 16:55:00 +0900
-categories: [Computer, Android]
+categories: [Android]
 tags: [android, flask, volley, json]     # TAG names should always be lowercase
 ---
 
