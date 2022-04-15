@@ -30,7 +30,8 @@ Log.d("MainActivity", "Sample Log Message");
 * `"MainActivity"`: Logcat 창에서 메시지를 필터링하기 위한 첫번째 인자인 TAG
     - 일반적으로 메시지가 발생한 `Activity` 이름으로 설정해주어 디버깅이 편리하도록 한다.
     - `private static final String LOG_TAG = MainActivity.class.getSimpleName();`
-* `"Sample Log Message"`: 실제 메시지에 해당하는 두번째 인자
+* `"Sample Log Message"`: 실제 메시지에 해당하는 두번째 인자  
+
 ---
 
 # References
