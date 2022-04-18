@@ -34,8 +34,15 @@ tags: [android, codelab]     # TAG names should always be lowercase
     [여기](https://developer.android.com/codelabs/android-training-layout-editor-part-a?index=..%2F..%2Fandroid-training&hl=ko#6)를 참조하여 해당 경고를 없앨 수 있다.
 {: .prompt-tip }
 
-# 버튼을 위한 onClick 핸들러 추가하기
-*click handler*는 클릭가능한 UI 구성 요소를 이용자가 클릭하거나 탭했을 때 호출되는 메서드다. 안드로이드 스튜디오에서는 **Degisn** 탭의 **Attributes** pane
+<!--
+# Button을 위한 onClick Attribute와 Handler 추가하기
+*click handler*는 클릭가능한 UI 구성 요소를 이용자가 클릭하거나 탭했을 때 호출되는 메서드다. 안드로이드 스튜디오에서는 **Degisn** 탭의 **Attributes**를 선택하여 `onClick` 필드 내의 메서드 이름을 특정할 수 있다. 혹은 XML 에디터에서 `android:onClick` 특성을 추가하는 방법으로도 가능하다.
+
+## Toast Button handler
+```java
+Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
+```
+-->
 ---
 
 # Image Source
