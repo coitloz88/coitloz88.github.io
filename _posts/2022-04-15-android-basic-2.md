@@ -28,11 +28,25 @@ tags: [android, codelab]     # TAG names should always be lowercase
 ![Resizing handle](https://developer.android.com/codelabs/android-training-layout-editor-part-a/img/df8aacf0d83e0af7.png?hl=ko){: width="10%"}{: .center}  
 
 # UI 구성 요소의 Attributes 변경
-**Attributes** 탭에서는 UI 구성 요소의 모든 XML Attributes에 접근할 수 있다. 자세한 내용은 [여기](https://developer.android.com/reference/android/view/View.html?hl=ko)서 확인 가능하다.
+**Attributes** 탭에서는 UI 구성 요소의 모든 XML Attributes에 접근할 수 있다. 자세한 내용은 [이 곳](https://developer.android.com/reference/android/view/View.html?hl=ko)에서 확인 가능하다.
+
+## 레이아웃 Width와 Height 설정
+`layout_width`와 `layout_height` Attributes는 View 창에서 보이는 넓이와 높이 크기를 변경할 수 있게 해준다. 이러한 Attributes로 `ConstraintLayout`의 다음 세 가지 값 중 하나를 선택할 수 있다.
+| 이름 | 설명 | 표시 | 
+|:----------:|:----------|:----------:|  
+| `match_constraint` | Parent의 높이나 너비의 가능한 영역 전부를 채운다. | ![match_constraint](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbp5diK%2FbtqzNCTbipc%2FogSMZSDEPSq3eQoSiP9TI0%2Fimg.png){: width="10%"}{: .center} | 
+| `wrap_content` | View 크기에 맞춘다. | ![wrap_content](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbE6DeU%2FbtqzOedxqEE%2FnlEy1kP4oj7FhNoRlQFG0K%2Fimg.png) |
+| `dp` | 디바이스의 스크린 사이즈에 맞는 고정된 사이즈를 지정한다. | ![dp](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbfLwwZ%2FbtqzM9wTGTH%2Fc3kVkikqAMYG3zeTKXmWlk%2Fimg.png) |  
 
 > Hard-coding Strings 경고 문구와 관련하여
     [여기](https://developer.android.com/codelabs/android-training-layout-editor-part-a?index=..%2F..%2Fandroid-training&hl=ko#6)를 참조하여 해당 경고를 없앨 수 있다.
 {: .prompt-tip }
+
+# Toast Message 출력
+`Toast`는 작은 팝업 창으로 간단한 메시지를 보여주는 기능을 제공한다. 메시지에 필요한 만큼의 공간만을 채운다. `Toast`는 일반적으로 다음과 같은 코드를 통해 그 인스턴스를 생성한다.  
+```java
+Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
+```
 
 <!--
 # Button을 위한 onClick Attribute와 Handler 추가하기
@@ -48,6 +62,7 @@ Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 # Image Source
 * <https://developer.android.com/codelabs/android-training-layout-editor-part-a/img/82bedbd4dd5bef39.png?hl=ko>
 * <https://developer.android.com/codelabs/android-training-layout-editor-part-a/img/df8aacf0d83e0af7.png?hl=ko>
+# <https://beomseok95.tistory.com/305#View_%ED%81%AC%EA%B8%B0_-_android:layout_width___layout_height_%EC%86%8D%EC%84%B1_%EC%82%AC%EC%9A%A9>
 
 # References
 * <https://developer.android.com/courses/fundamentals-training/toc-v2?hl=ko>
