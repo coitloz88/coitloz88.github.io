@@ -34,7 +34,7 @@ tags: [android, codelab]     # TAG names should always be lowercase
 `layout_width`와 `layout_height` Attributes는 View 창에서 보이는 넓이와 높이 크기를 변경할 수 있게 해준다. 이러한 Attributes로 `ConstraintLayout`의 다음 세 가지 값 중 하나를 선택할 수 있다.  
 
 | 이름 | 설명 | 표시 | 
-|:----------:|:----------|:----------:|  
+|:----------|:----------|:----------:|  
 | `match_constraint` | Parent의 높이나 너비의 가능한 영역 전부를 채운다. | ![match_constraint](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbp5diK%2FbtqzNCTbipc%2FogSMZSDEPSq3eQoSiP9TI0%2Fimg.png){: .center} | 
 | `wrap_content` | View 크기에 맞춘다. | ![wrap_content](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbE6DeU%2FbtqzOedxqEE%2FnlEy1kP4oj7FhNoRlQFG0K%2Fimg.png) |
 | `dp` | 디바이스의 스크린 사이즈에 맞는 고정된 사이즈를 지정한다. | ![dp](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbfLwwZ%2FbtqzM9wTGTH%2Fc3kVkikqAMYG3zeTKXmWlk%2Fimg.png) |  
@@ -51,7 +51,7 @@ Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 ```
 # ConstraintLayout
 
-## ViewGrou
+## ViewGroup
 
 ## Layout Variants 생성
 
@@ -64,7 +64,7 @@ Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 4. 드롭다운 메뉴의 **Switch to Landscape**를 고르면 레이아웃이 Horizontal 방향으로 보여진다. 다시 세로로 돌리고 싶다면 **Switch to Portrait**을 골라주자.
 
 ### Horizontal 방향 Layout Variant 만들기
-1. **Orientation in Editor** 버튼을 ![Orientation in Editor](https://developer.android.com/codelabs/android-training-layout-editor-part-b/img/2880bbe9bf5ed4bd.png?hl=ko)를 클릭하자.
+1. **Orientation in Editor** 버튼 ![Orientation in Editor](https://developer.android.com/codelabs/android-training-layout-editor-part-b/img/2880bbe9bf5ed4bd.png?hl=ko)을 클릭하자.
 2. **Create Landscape Variation**를 선택하자.
 
 그러면 이제 **land/activity_main.xml** 탭이 Horizontal 방향을 위한 레이아웃을 보여주며 새로운 에디터에서 열릴 것이다. 이제 본래의 Vertical 방향을 건드리지 않고 Horizontal 방향만을 수정할 수 있다.
