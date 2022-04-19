@@ -49,15 +49,32 @@ tags: [android, codelab]     # TAG names should always be lowercase
 ```java
 Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 ```
+# ConstraintLayout
 
-# Layout Variants 생성
+## ViewGrou
+
+## Layout Variants 생성
 
 좀 더 쉽게 Horizontal(*landscape*)이나 Vertical(*portrait*) 방향에 대한 Layout Variants를 만드는 방법에 관해 알아보자.
 
-## Horizontal 방향 레이아웃 미리보기
-1. Android Studio 열기
-2. **activity_main.xml** 레이아웃 파일을 열고, **Design** 탭을 선택하기
-3. **Orientation in Editor** 버튼 ![Orientation in Editor](https://developer.android.com/codelabs/android-training-layout-editor-part-b/img/2880bbe9bf5ed4bd.png?hl=ko)
+### Horizontal 방향 레이아웃 미리보기
+1. Android Studio 프로젝트를 열자.
+2. **activity_main.xml** 레이아웃 파일을 열고, **Design** 탭을 선택하자.
+3. **Orientation in Editor** 버튼 ![Orientation in Editor](https://developer.android.com/codelabs/android-training-layout-editor-part-b/img/2880bbe9bf5ed4bd.png?hl=ko) 클릭
+4. 드롭다운 메뉴의 **Switch to Landscape**를 고르면 레이아웃이 Horizontal 방향으로 보여진다. 다시 세로로 돌리고 싶다면 **Switch to Portrait**을 골라주자.
+
+### Horizontal 방향 Layout Variant 만들기
+1. **Orientation in Editor** 버튼을 ![Orientation in Editor](https://developer.android.com/codelabs/android-training-layout-editor-part-b/img/2880bbe9bf5ed4bd.png?hl=ko)를 클릭하자.
+2. **Create Landscape Variation**를 선택하자.
+
+그러면 이제 **land/activity_main.xml** 탭이 Horizontal 방향을 위한 레이아웃을 보여주며 새로운 에디터에서 열릴 것이다. 이제 본래의 Vertical 방향을 건드리지 않고 Horizontal 방향만을 수정할 수 있다.
+
+3. **Project > Android** 탭의 **res > layout** 디렉토리를 보면, 안드로이드 스튜디오가 자동으로 `activity_main.xml (land)`를 생성한 것을 볼 수 있다.
+
+### Horizontal 방향 레이아웃 수정
+Vertical 방향 레이아웃을 수정할 때처럼 동일한 방법으로 수정이 가능하다.
+
+# 레이아웃을 LinearLayout으로 변경
 
 <!--
 # Button을 위한 onClick Attribute와 Handler 추가하기
@@ -73,7 +90,8 @@ Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 # Image Source
 * <https://developer.android.com/codelabs/android-training-layout-editor-part-a/img/82bedbd4dd5bef39.png?hl=ko>
 * <https://developer.android.com/codelabs/android-training-layout-editor-part-a/img/df8aacf0d83e0af7.png?hl=ko>
-# <https://beomseok95.tistory.com/305#View_%ED%81%AC%EA%B8%B0_-_android:layout_width___layout_height_%EC%86%8D%EC%84%B1_%EC%82%AC%EC%9A%A9>
+* <https://beomseok95.tistory.com/305#View_%ED%81%AC%EA%B8%B0_-_android:layout_width___layout_height_%EC%86%8D%EC%84%B1_%EC%82%AC%EC%9A%A9>
+* <https://developer.android.com/codelabs/android-training-layout-editor-part-b/img/2880bbe9bf5ed4bd.png?hl=ko>
 
 # References
 * <https://developer.android.com/courses/fundamentals-training/toc-v2?hl=ko>
