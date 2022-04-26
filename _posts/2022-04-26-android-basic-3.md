@@ -5,7 +5,7 @@ categories: [Android, Fundamentals]
 tags: [android, codelab]     # TAG names should always be lowercase
 ---
 
-> 지난 글: [1.2 시작하기](https://coitloz88.github.io/posts/android-basic-2/)
+> 지난 글: [1.2 대화형 UI](https://coitloz88.github.io/posts/android-basic-2/)
 
 ---
 
