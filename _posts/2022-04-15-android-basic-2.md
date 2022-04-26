@@ -27,6 +27,12 @@ tags: [android, codelab]     # TAG names should always be lowercase
 * Resizing handle
 ![Resizing handle](https://developer.android.com/codelabs/android-training-layout-editor-part-a/img/df8aacf0d83e0af7.png?hl=ko){: width="10%"}{: .center}  
 
+<br>
+
+---
+
+<br>
+
 # UI 구성 요소의 Attributes 변경
 **Attributes** 탭에서는 UI 구성 요소의 모든 XML Attributes에 접근할 수 있다. 자세한 내용은 [이 곳](https://developer.android.com/reference/android/view/View.html?hl=ko)에서 확인 가능하다.
 
@@ -49,6 +55,13 @@ tags: [android, codelab]     # TAG names should always be lowercase
 ```java
 Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 ```
+
+<br>
+
+---
+
+<br>
+
 # ConstraintLayout
 
 ## ViewGroup
@@ -74,7 +87,27 @@ Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 ### Horizontal 방향 레이아웃 수정
 Vertical 방향 레이아웃을 수정할 때처럼 동일한 방법으로 수정이 가능하다.
 
+<br>
+
+---
+
+<br>
+
 # 레이아웃을 LinearLayout으로 변경
+
+`LinearLayout`이란 View들을 Horizontal 혹은 Vertical 행으로 정렬하는 View Group을 말한다. 보통 다른 View 그룹 간에 UI 구성 요소를 가로 혹은 세로로 정렬하기 위해 사용된다.
+
+## Required Attributes
+1. `layout_width`
+2. `layout_height`
+
+    - `match_parent`: 그것의 Parent의 너비나 높이를 가득 채우도록 View를 확장한다.
+    - `wrap_content`: View 크기를 축소해서, View가 내용을 둘러쌀 수 있을 정도로마나 커진다. 내용이 없으면 View가 보이지 않게 된다.
+    - Fixed number of dp: 장치 화면 밀도에 맞게 조정된 고정된 사이즈를 지정한다.
+
+3. `orientation`
+    - horizontal: View가 왼쪽에서 오른쪽으로 정렬된다.
+    - vertical: View가 위에서 아래로 정렬된다.
 
 <!--
 # Button을 위한 onClick Attribute와 Handler 추가하기
@@ -85,6 +118,21 @@ Vertical 방향 레이아웃을 수정할 때처럼 동일한 방법으로 수�
 Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 ```
 -->
+
+<br>
+
+---
+
+<br>
+
+# 레이아웃을 RelativeLayout으로 변경
+`RelativeLayout`이란 그룹 내에서 각 View가 다른 View들과 상대적으로 배치되고 정렬되는 View Group을 말한다.
+
+## 정렬
+1. `android:layout_alignParentTop`: Parent의 윗쪽에 `View`를 정렬한다.
+2. `android:layout_alignParentLeft`: Parent의 왼쪽에 `View`를 정렬한다.
+3. `android:layout_alignParentStart`: `View`의 start edge가 Parent의 start edge에 매치되도록 정렬한다.
+
 ---
 
 # Image Source
