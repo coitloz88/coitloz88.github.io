@@ -95,7 +95,9 @@ Vertical 방향 레이아웃을 수정할 때처럼 동일한 방법으로 수�
 
 # 레이아웃을 LinearLayout으로 변경
 
-`LinearLayout`이란 View들을 Horizontal 혹은 Vertical 행으로 정렬하는 View Group을 말한다. 보통 다른 View 그룹 간에 UI 구성 요소를 가로 혹은 세로로 정렬하기 위해 사용된다.
+`LinearLayout`이란 레이아웃의 View들을 Horizontal 혹은 Vertical 행으로 정렬하는 View Group을 말한다. 보통 다른 View 그룹 간에 UI 구성 요소를 가로 혹은 세로로 정렬하기 위해 자주 사용된다.  
+
+블록(View)을 차곡차곡 쌓아올리는 것과도 같은 레이아웃인데, 블록을 쌓을 때 블록과 블록 사이가 비어있을 수 없는 것처럼 각 View는 연속적이다. 따라서 객체를 만들면 겹치지 않고 수평 또는 수직으로 나열된다.  
 
 ## Required Attributes
 1. `layout_width`
@@ -106,8 +108,16 @@ Vertical 방향 레이아웃을 수정할 때처럼 동일한 방법으로 수�
     - Fixed number of dp: 장치 화면 밀도에 맞게 조정된 고정된 사이즈를 지정한다.
 
 3. `orientation`
-    - horizontal: View가 왼쪽에서 오른쪽으로 정렬된다.
+```
+android:orientation = "~~"
+```
+    - horizontal: View가 왼쪽에서 오른쪽으로 정렬된다. 디폴트 값.
     - vertical: View가 위에서 아래로 정렬된다.
+
+
+> LinearLayout에서는 View의 가중치(weight)를 설정할 수 있는데, 이 때 가중치란 부모 컨테이너의 남은 영역을 얼마나 차지할 것인가를 결정하는 비율 값이다. 디바이스 별로 화면 크기가 달라도 알맞은 비율을 유지할 수 있다.
+{: .prompt-tip }
+
 
 <!--
 # Button을 위한 onClick Attribute와 Handler 추가하기
@@ -126,12 +136,20 @@ Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 <br>
 
 # 레이아웃을 RelativeLayout으로 변경
-`RelativeLayout`이란 그룹 내에서 각 View가 다른 View들과 상대적으로 배치되고 정렬되는 View Group을 말한다.
+`RelativeLayout`이란 그룹 내에서 각 View가 다른 View들과 상대적으로 배치되고 정렬되는 View Group을 말한다.  
+
+LinearLayout에 비해 View의 배치가 보다 자유로운데, View들의 상대적인 위치로 배치할 수 있다는 것은 곧 부모 레이아웃에서의 상대적인 위치일 수도 있고, 특정 View에 대한 상대적인 위치일 수도 있다. 즉, 객체를 만들면 객체 혼자 움직이지 않고 항상 `id(객체 이름)`를 선정한 다른 객체를 기준으로 위치와 방향을 조정한다.
+
 
 ## 정렬
-1. `android:layout_alignParentTop`: Parent의 윗쪽에 `View`를 정렬한다.
-2. `android:layout_alignParentLeft`: Parent의 왼쪽에 `View`를 정렬한다.
-3. `android:layout_alignParentStart`: `View`의 start edge가 Parent의 start edge에 매치되도록 정렬한다.
+
+### 부모 레이아웃에서의 상대적인 위치 지정
+1. `android:layout_alignParent(Top / Bottom / Left / Right) = ~~`: 빈 칸(`~~`)에 `true`를 넣어 View를 부모 레이아웃의 한 변에 정렬하여 배치할 수 있다.
+2. `android:layout_center(Horizontal / Vertical / Inparent) = ~~`: 빈 칸에 `true`를 넣어 View를 부모 레이아웃의 수평 중앙 / 수직 중앙 / 전체 중앙으로 배치할 수 있다.
+
+### 특정 View에 대한 상대적인 위치 지정
+1. `android:layout_(above / below / toLeftOf / toRightOf) = @id/~~`: 빈 칸에 `id`를 입력하여, View를 그 `id`에 해당하는 View의 위 / 아래 / 왼쪽 / 오른쪽에 배치할 수 있다.
+2. `android:layout_align(Top / Bottom / Left / Right) = @id/~~` 빈 칸에 `id`를 입력하여, View를 그 `id`에 해당하는 View의 한 변에 정렬하여 배치할 수 있다.
 
 ---
 
@@ -143,3 +161,5 @@ Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
 
 # References
 * <https://developer.android.com/courses/fundamentals-training/toc-v2?hl=ko>
+* <https://newgenerationkorea.wordpress.com/2015/07/18/layout-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0-linearlayout%EA%B3%BC-relativelayout/>
+* <https://m.blog.naver.com/789_skymert/221973230139>
