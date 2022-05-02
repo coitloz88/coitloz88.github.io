@@ -37,6 +37,8 @@ Activity는 *intent*와 함께 시작(활성화)된다. `Intent`란 Activity에�
 1. Main Activity에서 특정 Text를 입력하고, Second Activity에 입력한 Text 데이터를 Intent로 넘겨준다.
 2. Second Activity에서는 Main Activity로부터 받은 Text를 표시하고, Main Activity로 돌아갈때 다시 Reply Text 데이터를 Intent로 넘겨준다.
 
+<br>
+
 ## 1. Create and launch another Activity: Intent 추가
 
 layout과 Java 파일을 가진 새로운 Activity를 프로젝트에 추가하면, `AndroidManifest.xml`에서 해당 Activity의 `<activity>` 요소를 확인할 수 있다. main activity와 마찬가지로 `AppCompatActivity` 클래스를 상속받는다.  
@@ -44,6 +46,7 @@ layout과 Java 파일을 가진 새로운 Activity를 프로젝트에 추가하�
 앱의 각 Activity는 다른 Activity들과 느슨하게 연결되어 있다. 하지만, `AndroidManifest.xml` 파일에서 하나의 Activity를 다른 Activity의 parent activity로 지정가능하다. 이러한 parent-child 관계를 통해 Android에서는 각 Activity의 제목 표시줄에 왼쪽 화살표와 같은 탐색 힌트를 추가할 수 있다.  
 
 ### (1) Main Activity에 Button 추가하기
+
 Main Activity의 java 파일에 `launchSecondActivity()`를 정의한다.  
 Main Activity의 레이아웃 xml 파일에 버튼을 추가한다. 버튼의 xml 코드를 수정하여 버튼 클릭 시 `launchSecondActivity()`가 실행되도록 설정해준다.
 
@@ -63,6 +66,7 @@ Main Activity의 레이아웃 xml 파일에 버튼을 추가한다. 버튼의 xm
 ![Main Activity에 버튼 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/1ff9e83ac0bb3437.png?hl=ko){:. center}
 
 ### (2) Main Activity에 Intent 추가하기
+
 `Main Activity`에 명시적인 `Intent`를 추가하고, 새로운 `Intent`를 메서드 인자로 사용하는 `startActivity()`를 호출하기 위해 `launchSecondActivity()`에 다음과 같은 내용을 추가한다.
 
 ```java
@@ -70,12 +74,105 @@ Intent intent = new Intent(this, SecondActivity.class);
 startActivity(intent);
 ```
 
+<br>
+
 ## 2. 서로 다른 Activity 간에 데이터 주고받기: Intent로 데이터 넘기기
 
 서로 다른 Activity 간에 데이터를 주고받기 위해서는 (1)data field, (2)intent *extras*를 사용하는 2가지 방법이 있다. intent data는 작업할 특정 데이터를 나타내는 URI인데, intent를 통해 Activity에 전달하려는 정보가 URI가 아닌 경우, 혹은 전달하려는 정보가 두 개 이상인 경우, 추가 정보를 *extras*에 넣을 수 있다.
 
 ### (1) Main Activity에 EditText 추가하기
+
 Second Activity에 intent *extras*로 넘겨줄 문자열 값을 EditText를 통해 입력받는다. 
+
+### (2) Intent extras에 string 추가하기
+
+`Intent` *extras*는 `Bundle`의 key-value 쌍이다. 다른 `Activity`로 정보를 보내기 위해서는 `Intent` extra `Bundle`에 key-value들을 넣어줘야 한다.
+
+1. `Intent` extra의 key를 정의하기 위한 `public` 상수 추가
+
+```java
+public static final String EXTRA_MESSAGE = "com.example.android.twoactivities.extra.MESSAGE";
+```
+
+2. `EditText`를 연결헐 `private` 변수를 선언하고, 해당 변수를 `onCreate()`에서 `findViewByID()`로 찾아 연결한다.
+
+3. `launchSecondActivity()`의 `Intent` 선언 아래에 `EditText`의 text 데이터를 받아올 수 있도록 코드를 추가한다.
+
+![Main Activity에 EditText 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/cd5302e2709828b7.png?hl=ko){:. center}
+
+4. 문자열을 `Intent` extra에 key-value 형태의 데이터로 추가한다.
+
+```java
+intent.putExtra(EXTRA_MESSAGE, message);
+```
+
+`MainActivity`의 각 메서드는 다음과 같이 정리된다.
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mMessageEditText = findViewById(R.id.editText_main);
+}
+
+public void launchSecondActivity(View view) {
+        Log.d(LOG_TAG, "Button clicked!");
+        Intent intent = new Intent(this, SecondActivity.class);
+        String message = mMessageEditText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+}
+```
+
+### (3) Second Activity에서 메시지를 받을 TextView 추가하기
+
+Main Activity에서 intent extra로 넘어온 문자열 데이터를 받아서 보여주기 위한 TextView를 추가해준다.
+
+![Second Activity에 TextView 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/d505e47d07ddd850.png?hl=ko){:. center}
+
+### (4) Get Extras and Display the message
+
+1. SecondActivity.java의 `onCreate()`에서 Activity를 활성화하는 `Intent`를 받아온다.
+
+```java
+Intent intent = getIntent();
+```
+
+2. `MainActivity.EXTRA_MESSAGE` static 변수를 key로 사용하여 `Intent` extras로부터 메시지를 포함하는 문자열을 받아온다.
+
+```java
+String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+```
+
+3. 레이아웃의 `TextView`를 `findViewByID()`를 사용하여 코드 내 변수와 연결한다.
+
+4. `TextView`의 텍스트를 `Intent` extra로부터 받은 문자열로 설정한다.
+
+```java
+textView.setText(message);
+```
+
+`SecondActivity`의 메서드는 다음과 같이 정리된다.
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_second);
+    Intent intent = getIntent();
+    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+    TextView textView = findViewById(R.id.text_message);
+    textView.setText(message);
+}
+```
+
+<!--
+TODO:
+* Second Activity → Main Activity로 데이터 넘기기
+* 데이터가 잘 넘어갔는지 RESULT 확인
+* Activity 종료(finish())
+-->
 
 
 <br>
@@ -86,6 +183,8 @@ Second Activity에 intent *extras*로 넘겨줄 문자열 값을 EditText를 통
 
 # Image Source
 * <https://developer.android.com/codelabs/android-training-create-an-activity/img/1ff9e83ac0bb3437.png?hl=ko>
+* <https://developer.android.com/codelabs/android-training-create-an-activity/img/cd5302e2709828b7.png?hl=ko>
+* <https://developer.android.com/codelabs/android-training-create-an-activity/img/d505e47d07ddd850.png?hl=ko>
 
 # References
 * <https://developer.android.com/courses/fundamentals-training/toc-v2?hl=ko>
