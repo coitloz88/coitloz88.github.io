@@ -174,6 +174,179 @@ TODO:
 * Activity 종료(finish())
 -->
 
+<br>
+
+## 3. Main Activity에 Reply를 건네주며 돌아오기
+Second Activity로부터 Main Activity로 데이터를 돌려주자(마찬가지로 intent *extras*를 이용한다.)  
+
+### (1) Second Activity Layout에 EditText와 Button을 추가하기
+
+이전 단계에서 했던 것처럼, Reply를 작성할 `EditText`와 전송을 Trigger할 `Button`을 `SecondActivity`의 Layout에 추가해준다.  
+
+새로운 `activity_second.xml`은 다음과 같아질 것이다.
+
+![Second Activity에 Reply 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/4acbc21712a8e6f7.png?hl=ko){:. center}
+
+### (2) Second Activity에 Reponse Intent 추가하기
+
+이전에 했던 것과 마찬가지로 진행하면 된다.
+
+class의 상단에, `Intent` extra의 key를 정의하기 위한 public 변수를 설정한다.  
+또한, `EditText`를 연결하기 위한 private 변수도 설정해준다.  
+
+`onCreate()` 메서드에서는 `findViewByID()`로 `EditText`의 reference를 private 변수에 할당해준다.  
+
+`returnReply()` 메서드에서는 `EditText`의 text를 설정하는 코드와, Reply를 위한 새로운 `Intent`를 생성하는 코드를 작성해준다. 이때, 이전에 사용했던 Intent를 사용하면 절대 안된다.  
+
+`EditText`로부터 받은 `reply` 문자열을 새로운 intent의 `Intent` *extra*에 담아준다.
+
+```java
+replyIntent.putExtra(EXTRA_REPLY, reply);
+```
+
+응답이 성공적이었다는 것을 나타내도록 결과를 `RESULT_OK`로 설정한다. 
+> `Activity` 클래스에서 result code를 정의하는데, `RESULT_OK`와 `RESULT_CANCELLED`로 나뉜다.
+
+```java
+setResult(RESULT_OK, replyIntent);
+```
+
+현재 `Activity`를 닫고 `MainActivity`로 돌아가기 위해 `finish()`를 호출해준다.
+
+이전 단계를 포함하여, `SecondActivity`의 자바 코드는 다음과 같이 정리된다.
+
+```java
+public class SecondActivity extends AppCompatActivity {
+    public static final String EXTRA_REPLY =
+                         "com.example.android.twoactivities.extra.REPLY";
+    private EditText mReply;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        mReply = findViewById(R.id.editText_second);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        TextView textView = findViewById(R.id.text_message);
+        textView.setText(message);
+    }
+
+    public void returnReply(View view) {
+        String reply = mReply.getText().toString();
+        Intent replyIntent = new Intent();
+        replyIntent.putExtra(EXTRA_REPLY, reply);
+        setResult(RESULT_OK, replyIntent);
+        finish();
+    }
+}
+```
+
+### (3) Main Activity에 Reply를 표시할 TextView 추가하기
+
+`SecondActivity`로부터 받은 reply를 MainActivity에 표시하기 위해, `activity_main.xml`에 `TextView` 구성 요소를 추가하자. 초기에는 보이지 않도록 설정하지 위해서는 `android:visibility`를 `invisible`로 설정해주면 된다.  
+
+### (4) Main Activity에서 Intent extra Reply 받고 표시하기
+
+다른 `Activity`를 시작하기 위해 명시적인 `Intent`를 사용했을 때, 만약 아무런 데이터도 넘기고 싶지 않다면 그냥 아예 이전 포스팅에서 해왔던 것처럼 `startActivity()`로 새로운 `Activity`를 시작해주면 된다. 그러나 이전에 활성화 되었던 `Activity`로부터 데이터를 받고 싶은 경우, `startActivityForResult()`로 해당 목표를 수행할 수 있다.  
+
+1. **MainActivity**에서, 받고 싶은 특정 타입의 응답을 위한 key를 class 상단에 public 변수로 선언해준다.
+
+```java
+public static final int TEXT_REQUEST = 1;
+```
+
+2. Reply header와 `TextView`를 연결하기 위한 두 개의 private 변수를 선언한다.
+
+```java
+private TextView mReplyHeadTextView;
+private TextView mReplyTextView;```
+```
+
+3. 앞서 2.에서 선언한 두 private 변수를 `onCreate()`메서드에서 `findViewByID()`로 실제 layout의 reply header와 reply `TextView`에 연결해준다.
+
+
+이제 MainActivity의 `onCreate()`는 이전 단계를 포함하여 다음과 같이 정리될 것이다.
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mMessageEditText = findViewById(R.id.editText_main);
+        mReplyHeadTextView = findViewById(R.id.text_header_reply);
+        mReplyTextView = findViewById(R.id.text_message_reply);
+}
+```
+
+4. 이제 `launchSecondActivity()`를 수정해주자. 기존의 `startActivity()`를 `TEXT_REQUEST` key를 포함하는 `startActivityForResult()`로 변경해주자.
+
+```java
+startActivityForResult(intent, TEXT_REQUEST);
+```
+
+5. 콜백 메서드 `onActivityResult()`를 오버라이드한다.
+
+```java
+@Override
+public void onActivityResult(int requestCode, 
+                             int resultCode, Intent data) {
+}
+```
+세 개의 변수는 데이터를 리턴하는 동작을 수행하기 위한 모든 정보를 포함한다.
+        * `requestCode`: `startActivityForResult()`로 `Activity`를 실행했을 때 설정
+        * `resultCode`: 실행된 `Activity`에서 설정됨(보통 `RESULT_OK`와 `RESULT_CANCELLED`로 나뉨)
+        * `Intent data`: 실행된 `Activity`로부터 리턴된 데이터를 포함
+
+6. `onActivityResult()`에 부모 생성자 `super.onActivityResult()`를 호출하자.
+
+7. `Intent` 결과가 제대로 왔는지 확인하기 위해 `TEXT_REQUEST`를 테스트하는 코드를 추가하자.
+
+```java
+if (requestCode == TEXT_REQUEST) {
+    if (resultCode == RESULT_OK) { 
+    }
+}
+```
+
+8. if 블럭 안에, `Intent` extra를 받는 코드를 추가해주자.
+
+```java
+String reply = data.getStringExtra(SecondActivity.EXTRA_REPLY);
+```
+
+9. 그리고 이제 응답을 보여줄 reply header와 `TextView` 보이도록 설정해주자.
+
+```java
+mReplyHeadTextView.setVisibility(View.VISIBLE);
+mReplyTextView.setText(reply);
+mReplyTextView.setVisibility(View.VISIBLE);
+```
+
+이제 전체 `onActivityResult()` 메서드는 다음과 같을 것이다.
+
+```java
+@Override
+public void onActivityResult(int requestCode, 
+                             int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == TEXT_REQUEST) {
+        if (resultCode == RESULT_OK) {
+            String reply = 
+                    data.getStringExtra(SecondActivity.EXTRA_REPLY);
+            mReplyHeadTextView.setVisibility(View.VISIBLE);
+            mReplyTextView.setText(reply);
+            mReplyTextView.setVisibility(View.VISIBLE);
+        }
+    }
+}
+```
+
+앱을 실행한후 Second Activity에서 응답을 보내면 다음과 같이 Main Activity에서 해당 응답을 받을 수 있다.  
+
+![Main Activity에서 Reply 받기](https://developer.android.com/codelabs/android-training-create-an-activity/img/e1c10fcdbf9a7e75.png?hl=ko){:. center}
+
+
+
 
 <br>
 
@@ -185,6 +358,8 @@ TODO:
 * <https://developer.android.com/codelabs/android-training-create-an-activity/img/1ff9e83ac0bb3437.png?hl=ko>
 * <https://developer.android.com/codelabs/android-training-create-an-activity/img/cd5302e2709828b7.png?hl=ko>
 * <https://developer.android.com/codelabs/android-training-create-an-activity/img/d505e47d07ddd850.png?hl=ko>
+* <https://developer.android.com/codelabs/android-training-create-an-activity/img/4acbc21712a8e6f7.png?hl=ko>
+* <https://developer.android.com/codelabs/android-training-create-an-activity/img/e1c10fcdbf9a7e75.png?hl=ko>
 
 # References
 * <https://developer.android.com/courses/fundamentals-training/toc-v2?hl=ko>
