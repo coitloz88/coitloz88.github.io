@@ -63,7 +63,7 @@ Main Activity의 레이아웃 xml 파일에 버튼을 추가한다. 버튼의 xm
         app:layout_constraintRight_toRightOf="parent" />
 ```
 
-![Main Activity에 버튼 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/1ff9e83ac0bb3437.png?hl=ko){:. center}
+![Main Activity에 버튼 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/1ff9e83ac0bb3437.png?hl=ko){: width="43%"}{:. center}
 
 ### (2) Main Activity에 Intent 추가하기
 
@@ -98,7 +98,7 @@ public static final String EXTRA_MESSAGE = "com.example.android.twoactivities.ex
 
 3. `launchSecondActivity()`의 `Intent` 선언 아래에 `EditText`의 text 데이터를 받아올 수 있도록 코드를 추가한다.
 
-![Main Activity에 EditText 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/cd5302e2709828b7.png?hl=ko){:. center}
+![Main Activity에 EditText 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/cd5302e2709828b7.png?hl=ko){: width="43%"}{:. center}
 
 4. 문자열을 `Intent` extra에 key-value 형태의 데이터로 추가한다.
 
@@ -129,7 +129,7 @@ public void launchSecondActivity(View view) {
 
 Main Activity에서 intent extra로 넘어온 문자열 데이터를 받아서 보여주기 위한 TextView를 추가해준다.
 
-![Second Activity에 TextView 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/d505e47d07ddd850.png?hl=ko){:. center}
+![Second Activity에 TextView 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/d505e47d07ddd850.png?hl=ko){: width="43%"}{:. center}
 
 ### (4) Get Extras and Display the message
 
@@ -185,7 +185,7 @@ Second Activity로부터 Main Activity로 데이터를 돌려주자(마찬가지
 
 새로운 `activity_second.xml`은 다음과 같아질 것이다.
 
-![Second Activity에 Reply 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/4acbc21712a8e6f7.png?hl=ko){:. center}
+![Second Activity에 Reply 추가](https://developer.android.com/codelabs/android-training-create-an-activity/img/4acbc21712a8e6f7.png?hl=ko){: width="43%"}{:. center}
 
 ### (2) Second Activity에 Reponse Intent 추가하기
 
@@ -343,7 +343,7 @@ public void onActivityResult(int requestCode,
 
 앱을 실행한후 Second Activity에서 응답을 보내면 다음과 같이 Main Activity에서 해당 응답을 받을 수 있다.  
 
-![Main Activity에서 Reply 받기](https://developer.android.com/codelabs/android-training-create-an-activity/img/e1c10fcdbf9a7e75.png?hl=ko){:. center}
+![Main Activity에서 Reply 받기](https://developer.android.com/codelabs/android-training-create-an-activity/img/e1c10fcdbf9a7e75.png?hl=ko){: width="43%"}{:. center}
 
 
 
