@@ -4,9 +4,9 @@
   type: github
   icon: 'fab fa-github'
 -
-  type: instagram
-  icon: 'fab fa-instagram'
-  url: 'https://www.instagram.com/sikhye1126/'
+  type: baekjoon
+  icon: 'fas fa-code
+  url: 'https://www.acmicpc.net/user/coitloz32'
 -
   type: notion
   icon: 'fas fa-book'

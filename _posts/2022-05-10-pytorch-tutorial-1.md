@@ -1,9 +1,12 @@
 ---
-title: Pytorch tutorials | Tensor
+title: Pytorch tutorials 01 | Tensor
 date: 2022-05-10 12:50:00 +0900
 categories: [ML, pytorch]
 tags: [ML, pytorch, tutorial]     # TAG names should always be lowercase
 ---
+
+모든 코드는 colab에서 실행했다.
+
 
 텐서(tensor)란, 배열(array)이나 행렬(matrix)와 비슷한 특수한 자료 구조이다. Pytorch에서는 텐서를 사용하여 모델의 input과 output, 그리고 매개 변수 등을 encode한다.
 
