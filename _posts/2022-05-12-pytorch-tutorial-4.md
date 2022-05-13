@@ -1,5 +1,5 @@
 ---
-title: Pytorch tutorials 03 | Transform
+title: Pytorch tutorials 04 | 신경망 모델 구성하기
 date: 2022-05-12 09:40:00 +0900
 categories: [ML, pytorch]
 tags: [ML, pytorch, tutorial]     # TAG names should always be lowercase
