@@ -79,6 +79,27 @@ batch_size = 64
 epochs = 5
 ```
 
+# Optimization Loop
+
+Optimization 단계의 각 iteration을 **Epoch**이라고 부르는데, 하나의 Epoch은 두 가지로 loop로 구성된다.
+* Train loop: 학습용 데이터 셋을 반복하고 최적의 매개변수로 수렴
+* Validation / test loop: 모델 성능이 개선되고 있는지 확인하기 위해 테스트 데이터 셋을 반복
+
+## Loss function
+
+Loss function, 손실 함수는 획득(계산)한 결과와 실제 값 사이의 틀린 정도(degree of dissimilarity)를 측정하며, training 중에 이 값을 최소화하려고 한다.
+
+```python
+loss_fn = nn.CrossEntropy()
+```
+
+## Optimizer
+각 train loop에서 모델의 error을 줄이기 위해 모델 매개변수를 조정한다. **최적화 알고리즘**은 이 과정이 수행되는 방식을 정의한다. (여기에서는 Stochastic Gradient Descent를 사용함)
+
+```python
+optimizer = torch.optim.SGD(model.parameters(), lr = learning_rate)
+```
+
 
 <br>
 
