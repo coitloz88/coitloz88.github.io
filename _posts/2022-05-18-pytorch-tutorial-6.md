@@ -100,6 +100,60 @@ loss_fn = nn.CrossEntropy()
 optimizer = torch.optim.SGD(model.parameters(), lr = learning_rate)
 ```
 
+<br>
+
+Train loop에서 optimization은 다음과 같은 세 단계로 이루어진다:  
+* `optimizer.zero_grad()`를 호출하여 모델 매개변수의 gradient를 재설정 한다. (default: add up)
+    - 중복 카운팅을 방지하기 위해, 각 순회 회차마다 0으로 명시적으로 설정한다.
+* `loss.backward()`를 호출하여 예측 loss를 back propagation한다. Pytorch에서는 각 매개변수에 대한 loss의 gradient를 저장한다.
+* gradient를 계산한 뒤에는 `optimizer.step()`을 호출하여 back propagation 단계에서 수집된 gradient로 매개변수를 조정한다.
+
+# Full implementation
+
+```python
+def train_loop(dataloader, model, loss_fn, optimizer):
+    size = len(dataloader.dataset)
+    for batch, (X, y) in enumerate(dataloader):
+        # Compute prediction and loss
+        pred = model(X)
+        loss = loss_fn(pred, y)
+
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if batch % 100 == 0:
+            loss, current = loss.item(), batch * len(X)
+            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+
+
+def test_loop(dataloader, model, loss_fn):
+    size = len(dataloader.dataset)
+    num_batches = len(dataloader)
+    test_loss, correct = 0, 0
+
+    with torch.no_grad():
+        for X, y in dataloader:
+            pred = model(X)
+            test_loss += loss_fn(pred, y).item()
+            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+
+    test_loss /= num_batches
+    correct /= size
+    print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+
+loss_fn = nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+
+epochs = 10
+for t in range(epochs):
+    print(f"Epoch {t+1}\n-------------------------------")
+    train_loop(train_dataloader, model, loss_fn, optimizer)
+    test_loop(test_dataloader, model, loss_fn)
+print("Done!")
+```
+
 
 <br>
 
